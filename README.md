@@ -6,6 +6,7 @@ This repository provides small demonstrations to achieve high quality transforma
 
 Includes examples using:
 
+* `docker` - a docker container to transform your CSV data using ogr2ogr
 * [`ogr2ogr`](http://www.gdal.org/ogr2ogr.html) - single command + small config
 * `C++` - user input is transformed and output with printf
 
