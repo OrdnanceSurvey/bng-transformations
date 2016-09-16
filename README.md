@@ -13,6 +13,6 @@ Includes examples using:
 # OSTN02 #
 The British National Grid (BNG) is not a perfect grid because it was made prior to modern high accuracy technology.  It can be likened to a grid made from string, where certain parts are slightly pulled to signify inaccuracy.
 
-In its original form OSTN02 consists of a plane 700km by 1250km grid of 1km resolution with an eastings shift and northing shift at each grid node.  The OSTNS02 file corrects the funamental BNG inaccuracies, which enables coordinate values to be transformed to other projections (e.g. EPSG:4326) via mathematical function whilst maintaining accuracy to the true location.
+In its original form OSTN02 consists of a plane 700km by 1250km grid of 1km resolution with an eastings shift and northing shift at each grid node.  The OSTNS02 file corrects the fundamental BNG inaccuracies, which enables coordinate values to be transformed to other projections (e.g. EPSG:4326) via mathematical functions whilst maintaining accuracy to the true location.
 
 Further details are [available](https://www.ordnancesurvey.co.uk/business-and-government/help-and-support/navigation-technology/os-net/ostn02-ntv2-format.html).
