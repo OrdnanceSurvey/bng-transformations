@@ -1,0 +1,1 @@
+Note: PROJ.4 assumes that grids contain a shift to NAD83 (essentially WGS84).  The Ordnance Survey OSTN15_NTv2_OSGBtoETRS.gsb file is a transformation to ETRS89, which is not WGS84 but is often acceptable.

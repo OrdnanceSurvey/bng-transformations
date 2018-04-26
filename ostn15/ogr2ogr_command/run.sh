@@ -1,0 +1,1 @@
+ogr2ogr -dim 2 -f 'GeoJSON' -s_srs "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.999601 +x_0=400000 +y_0=-100000 +ellps=airy +units=m +no_defs +nadgrids=../OSTN15_NTv2_OSGBtoETRS.gsb" -t_srs 'EPSG:4326' "building_area.json" "building_area.gpkg"
