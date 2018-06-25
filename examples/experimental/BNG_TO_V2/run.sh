@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ ! -f /usr/local/share/proj/OSTN02_NTv2.gsb ]; then
-    echo "OSTN02 not available in /usr/local/share/proj/OSTN02_NTv2.gsb"
+if [ ! -f /usr/local/share/proj/OSTN15_NTv2_OSGBtoETRS.gsb ]; then
+    echo "OSTN15 not available in /usr/local/share/proj/OSTN15_NTv2_OSGBtoETRS.gsb"
     exit
 fi
 
@@ -59,14 +59,14 @@ echo "| Ready to translate back to BNG values again?"
 echo "|"
 echo -n "Press [ENTER] to continue"
 read
-ogr2ogr -dim 2 -f 'CSV' -t_srs '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m +no_defs +nadgrids=/usr/local/share/proj/OSTN02_NTv2.gsb' "bng_again.csv" input_v2.vrt -lco GEOMETRY=AS_XY
+ogr2ogr -dim 2 -f 'CSV' -t_srs '+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m +no_defs +nadgrids=/usr/local/share/proj/OSTN15_NTv2_OSGBtoETRS.gsb' "bng_again.csv" input_v2.vrt -lco GEOMETRY=AS_XY
 cat bng_again.csv | awk 'BEGIN { FS = ","; OFS = FS ; } ;{ if (NR != 1) {$1=sprintf("%.3f", $1); $2=sprintf("%.3f", $2)} print}' > bng_again.csv.swp
 mv bng_again.csv.swp bng_again.csv
 
 echo
 echo "| OK, so we have translated from BNG to V2 and now back to BNG"
 echo "| Let us compare before and after"
-cat input.csv | awk 'BEGIN { FS = ","; } ;{ if (NR != 1) { print $9 FS $10 } }' > input_numbers.csv
+cat input.csv | awk 'BEGIN { FS = ","; } ;{ if (NR != 1) { print sprintf("%.3f", $9) FS sprintf("%.3f", $10) } }' > input_numbers.csv
 cat bng_again.csv | awk 'BEGIN { FS = ","; OFS = FS ; } ;{ if (NR != 1) { print $1 FS $2 } }' > bng_again_numbers.csv
 diff input_numbers.csv bng_again_numbers.csv
 
